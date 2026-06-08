@@ -1,28 +1,23 @@
-import fs from 'fs';
-import path from 'path';
+import { createClient } from 'redis';
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // No Vercel, a única pasta permitida para gravação temporária sem banco de dados é a /tmp
-  const filePath = path.join('/tmp', 'responses.json');
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  // No Vercel, o REDIS_URL é injetado automaticamente quando você conecta o Vercel KV
+  const client = createClient({ url: process.env.REDIS_URL });
 
   try {
-    // Tenta ler o arquivo existente para não apagar dados de outros posts, caso existam
-    let currentData = {};
-    if (fs.existsSync(filePath)) {
-      const fileData = fs.readFileSync(filePath, 'utf-8');
-      currentData = JSON.parse(fileData);
-    }
-
-    // Mescla os novos dados enviados pela interface
-    const newData = req.body.data;
-    
-    // Sobrescreve o arquivo com os dados atualizados
-    fs.writeFileSync(filePath, JSON.stringify(newData, null, 2));
-
+    await client.connect();
+    await client.set('claudia_responses', JSON.stringify(req.body));
+    await client.disconnect();
     res.status(200).json({ status: 'success' });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (e) {
+    try { await client.disconnect(); } catch {}
+    res.status(500).json({ error: e.message });
   }
 }
