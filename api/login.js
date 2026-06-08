@@ -3,16 +3,14 @@ export default async function handler(req, res) {
 
   const { username, password } = req.body;
 
-  // Autenticação simples baseada no script.js existente
   const validUsers = {
     // Admin variations
     'admin@duasmaos.com.br': 'T7v#S26!Adm9Xp',
-    'admin@duasmãos.com.br': 'T7v#S26!Adm9Xp',
     'admin': 'T7v#S26!Adm9Xp',
     
-    // Client variations
-    'gabriela@duasmaos.com.br': 'gabi2026',
-    'gabriela': 'gabi2026'
+    // Client variations (Claudia Mattanna)
+    'claudia@duasmaos.com.br': 'claudia2026',
+    'claudia': 'claudia2026'
   };
 
   const userLower = username?.toLowerCase().trim();
