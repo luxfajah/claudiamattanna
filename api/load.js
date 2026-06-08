@@ -1,17 +1,22 @@
-import { createClient } from 'redis';
-
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-
-  const client = createClient({ url: process.env.REDIS_URL });
+  const REPO = 'luxfajah/claudiamattanna';
+  const FILE_PATH = 'responses.json';
+  const TOKEN = process.env.GITHUB_TOKEN;
 
   try {
-    await client.connect();
-    const raw = await client.get('claudia_responses');
-    await client.disconnect();
-    res.status(200).json(raw ? JSON.parse(raw) : {});
-  } catch (e) {
-    try { await client.disconnect(); } catch {}
-    res.status(500).json({ error: e.message });
+    const headers = { 'Accept': 'application/vnd.github.v3+json' };
+    if (TOKEN) headers['Authorization'] = `token ${TOKEN}`;
+    
+    const getRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}?t=${Date.now()}`, { headers });
+    
+    if (getRes.ok) {
+      const getJson = await getRes.json();
+      const content = Buffer.from(getJson.content, 'base64').toString('utf-8');
+      res.status(200).json(JSON.parse(content));
+    } else {
+      res.status(200).json({});
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 }
