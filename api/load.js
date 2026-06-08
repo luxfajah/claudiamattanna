@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
   try {
     await client.connect();
-    const raw = await client.get('gabriela_responses');
+    const raw = await client.get('claudia_responses');
     await client.disconnect();
     res.status(200).json(raw ? JSON.parse(raw) : {});
   } catch (e) {
