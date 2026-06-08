@@ -3,7 +3,7 @@ import { createClient } from 'redis';
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  const client = createClient({ url: process.env.REDIS_URL });
+  const client = createClient({ url: process.env.REDIS_URL || process.env.KV_URL });
 
   try {
     await client.connect();
