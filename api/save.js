@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
   try {
     await client.connect();
-    await client.set('claudia_responses', JSON.stringify(req.body));
+    await client.set('claudia_responses', JSON.stringify(req.body.data || req.body));
     await client.disconnect();
     res.status(200).json({ status: 'success' });
   } catch (e) {
