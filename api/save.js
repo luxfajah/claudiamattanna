@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   // No Vercel, o REDIS_URL é injetado automaticamente quando você conecta o Vercel KV
-  const client = createClient({ url: process.env.REDIS_URL || process.env.KV_URL });
+  const client = createClient({ url: process.env.REDIS_URL || process.env.KV_URL || "redis://default:YpxigeuX75iY6FvCubASt2ruLVBKImHF@redis-10083.c92.us-east-1-3.ec2.cloud.redislabs.com:10083" });
 
   try {
     await client.connect();
