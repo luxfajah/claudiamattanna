@@ -4,7 +4,7 @@ def replace_all(file_path):
     
     replacements = [
         ('Gabriela Saueressig', 'Claudia Mattanna'),
-        ('gabrielasaueressig_', 'claudiamattanna'),
+        ('claudiamattanna_', 'claudiamattanna'),
         ('foto.webp', 'foto.jpg'),
         ('Juliana Ximendes', 'Claudia Mattanna'),
         ('juximendes', 'claudiamattanna'),

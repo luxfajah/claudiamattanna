@@ -104,13 +104,13 @@ for p in posts_data:
       <div class="post-num-badge"><div class="pnb-dot">{p['id']}</div> Post {p['id']}</div>
       <div class="ig-phone">
         <div class="ig-bar">
-          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
-          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-ava"><img src="foto.jpg" alt="Claudia Mattanna"></div>
+          <div><div class="ig-handle">claudiamattanna_</div></div>
           <div class="ig-type" id="type-{p['id']}">{p['type']}</div>
         </div>
         {media_html}
         <div class="ig-foot">
-          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+          <p class="ig-cap"><strong>claudiamattanna_</strong> Planejamento de conteúdo em aprovação.</p>
         </div>
       </div>
     </div>
@@ -126,7 +126,7 @@ for p in posts_data:
 
       <div class="blk-label">Legenda</div>
       <div class="caption-blk">
-        <span class="handle">gabrielasaueressig_</span> {p['caption']}
+        <span class="handle">claudiamattanna_</span> {p['caption']}
       </div>
 
     </div>

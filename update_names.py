@@ -6,8 +6,8 @@ for filepath in js_files:
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Replace juximendes with gabrielasaueressig_
-    content = content.replace('juximendes', 'gabrielasaueressig_')
+    # Replace juximendes with claudiamattanna_
+    content = content.replace('juximendes', 'claudiamattanna_')
     
     # Replace Juliana Ximendes with Gabriela Saueressig
     content = content.replace('Juliana Ximendes', 'Gabriela Saueressig')

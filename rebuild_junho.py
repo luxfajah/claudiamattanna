@@ -107,7 +107,7 @@ new_html = part1 + mid_content + part2
 replacements = [
     ('Gabriela Saueressig', 'Claudia Mattanna'),
     ('Juliana Ximendes', 'Claudia Mattanna'),
-    ('gabrielasaueressig_', 'claudiamattanna'),
+    ('claudiamattanna_', 'claudiamattanna'),
     ('juximendes', 'claudiamattanna'),
     ('style.css?v=2.2', 'junho.css?v=2.2'),
     ('logos/Foto de perfil.jpg', 'foto.jpg'),

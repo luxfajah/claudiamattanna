@@ -502,7 +502,7 @@ window.addEventListener('load', () => {
     const meta=postMeta[postId]||{};
     const cap=document.getElementById('lbCaption');
     if(cap) {
-      cap.innerHTML=`<strong>gabrielasaueressig_</strong> ${meta.caption||''}`;
+      cap.innerHTML=`<strong>claudiamattanna_</strong> ${meta.caption||''}`;
     }
     
     const cardsEl=document.getElementById('lbCards');

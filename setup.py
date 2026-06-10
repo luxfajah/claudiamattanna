@@ -37,7 +37,7 @@ build_replacements = [
     ("open('/Users/luxfajah/gabriela/maio.html', 'r', encoding='utf-8')", "open('/Users/luxfajah/claudia_mattanna/junho.html', 'r', encoding='utf-8')"),
     ("open('/Users/luxfajah/gabriela/maio.html', 'w', encoding='utf-8')", "open('/Users/luxfajah/claudia_mattanna/junho.html', 'w', encoding='utf-8')"),
     ("Gabriela Saueressig", "Claudia Mattanna"),
-    ("gabrielasaueressig_", "claudiamattanna"),
+    ("claudiamattanna_", "claudiamattanna"),
     ("maio.css", "junho.css"),
     ("maio.js", "junho.js"),
     ("Entregas de Maio", "Entregas de Junho"),

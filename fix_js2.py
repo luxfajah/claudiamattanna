@@ -19,7 +19,7 @@ js = re.sub(r'const lbSources = \{.*?\n  \};', new_lbSources, js, flags=re.DOTAL
 js = re.sub(r'const postMeta = \{.*?\n  \};', new_postMeta, js, flags=re.DOTALL)
 
 # Let's also fix the handle inside `populateLbRight` 
-js = js.replace("<strong>gabrielasaueressig_</strong>", "<strong>claudiamattanna</strong>")
+js = js.replace("<strong>claudiamattanna_</strong>", "<strong>claudiamattanna</strong>")
 
 with open('/Users/luxfajah/claudia_mattanna/junho.js', 'w') as f:
     f.write(js)
